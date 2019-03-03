@@ -15,3 +15,6 @@ https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000 : 10,000 Training image
 - Look for APIs to search for hospitals in the vicinity 
 - Design a wrapping architecture that integrates all the modules
 - Getting used to mobile development (Swift)
+
+# Project Architecture
+![Alt text](/ProjectStructure.png?raw=true "Diagram")
