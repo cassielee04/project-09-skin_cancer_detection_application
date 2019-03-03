@@ -21,6 +21,6 @@ https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000 : 10,000 Training image
 
 # Technologies to be used in first sprint selected with clear reasons why they were chosen
 - Microsoft Azure ( Backend server hosting )
- - We are going to be using the Microsoft Azure to host our backend server to run ML analysis on the incoming image from the        mobile device. Since running a machine learning algorithm in a mobile device is not adequate, we are going to be hosting a server in Azure so that it will handle the workload in the cloud.
+  - We are going to be using the Microsoft Azure to host our backend server to run ML analysis on the incoming image from the        mobile device. Since running a machine learning algorithm in a mobile device is not adequate, we are going to be hosting a server in Azure so that it will handle the workload in the cloud.
 - Xcode ( Application for mobile images -> Backend Server )
- - Since we are going to develop an application that will run in IOS we will be using Swift and Xcode to develop an mobile app locally.
+  - Since we are going to develop an application that will run in IOS we will be using Swift and Xcode to develop an mobile app locally.
