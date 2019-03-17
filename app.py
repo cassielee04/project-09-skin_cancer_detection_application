@@ -6,6 +6,10 @@ app = Flask(__name__)
 def home_dir():
     return "Hello World"
 
+@app.route("/photo_ML")
+def photo_classify():
+    pass
+
 
 if __name__ == "__main__":
     app.run(debug=True)
