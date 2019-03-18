@@ -1,14 +1,17 @@
 from flask import Flask
+from flask import request
+from flask import jsonify
 
 app = Flask(__name__)
 
 @app.route("/") # Home Directory 
 def home_dir():
-    return "Hello World"
+    return "Welcome to Home Dir"
 
-@app.route("/photo_ML")
+@app.route("/photo_ML", methods = ['GET'])
 def photo_classify():
-    pass
+    img_data = {request.data}
+    return jsonify(img_data), 200
 
 
 if __name__ == "__main__":
