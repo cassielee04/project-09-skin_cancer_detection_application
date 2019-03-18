@@ -10,8 +10,10 @@ def home_dir():
 
 @app.route("/photo_ML", methods = ['GET'])
 def photo_classify():
-    img_data = {request.data}
-    return jsonify(img_data), 200
+    print("Endpoint Reached")
+    print(request.files)
+    img_data = {request.files}
+    return "Image Received?", 200
 
 
 if __name__ == "__main__":
