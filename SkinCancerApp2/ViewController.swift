@@ -8,6 +8,10 @@
 //
 
 import UIKit
+import GoogleMaps
+import CoreLocation
+import GooglePlaces
+
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
@@ -37,11 +41,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         present(imagePicker, animated: true, completion: nil)
         }
     
+
+}
+
+@UIApplicationMain
+class AppDelegate:UIResponder,UIApplicationDelegate{
+    var window:UIWindow?
     
-   
-    
-    //MARK: - Take image
-    
-    
+    func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplication.LaunchOptionsKey:Any]?)->Bool{
+        
+        GMSServices.provideAPIKey("AIzaSyCUMzf6laFOUlDNWDyHDA99kjM5JgELXl0")
+        return true
+    }
 }
 

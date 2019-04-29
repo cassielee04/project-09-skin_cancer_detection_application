@@ -12,6 +12,7 @@
 		1E5538832242E3650041DD63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5538812242E3650041DD63 /* Main.storyboard */; };
 		1E5538852242E3670041DD63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E5538842242E3670041DD63 /* Assets.xcassets */; };
 		1E5538882242E3670041DD63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5538862242E3670041DD63 /* LaunchScreen.storyboard */; };
+		B30C95DFD21FFAD523138535 /* Pods_SkinCancerApp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E38213859FBD5F5284B21D7 /* Pods_SkinCancerApp2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		1E5538842242E3670041DD63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E5538872242E3670041DD63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E5538892242E3670041DD63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E38213859FBD5F5284B21D7 /* Pods_SkinCancerApp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkinCancerApp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B928C190422E8E5DFFCB4A67 /* Pods-SkinCancerApp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkinCancerApp2.release.xcconfig"; path = "Target Support Files/Pods-SkinCancerApp2/Pods-SkinCancerApp2.release.xcconfig"; sourceTree = "<group>"; };
+		DD70737639F4B57A7E9B844E /* Pods-SkinCancerApp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkinCancerApp2.debug.xcconfig"; path = "Target Support Files/Pods-SkinCancerApp2/Pods-SkinCancerApp2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B30C95DFD21FFAD523138535 /* Pods_SkinCancerApp2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16293F46C0D699E6AE699FEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E38213859FBD5F5284B21D7 /* Pods_SkinCancerApp2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1E5538712242E3640041DD63 = {
 			isa = PBXGroup;
 			children = (
 				1E55387C2242E3650041DD63 /* SkinCancerApp2 */,
 				1E55387B2242E3650041DD63 /* Products */,
+				BF5EB754A3E4D7021722B7ED /* Pods */,
+				16293F46C0D699E6AE699FEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,16 @@
 			path = SkinCancerApp2;
 			sourceTree = "<group>";
 		};
+		BF5EB754A3E4D7021722B7ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DD70737639F4B57A7E9B844E /* Pods-SkinCancerApp2.debug.xcconfig */,
+				B928C190422E8E5DFFCB4A67 /* Pods-SkinCancerApp2.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E55388C2242E3670041DD63 /* Build configuration list for PBXNativeTarget "SkinCancerApp2" */;
 			buildPhases = (
+				45172F4CB0565DB950E0CB38 /* [CP] Check Pods Manifest.lock */,
 				1E5538762242E3650041DD63 /* Sources */,
 				1E5538772242E3650041DD63 /* Frameworks */,
 				1E5538782242E3650041DD63 /* Resources */,
+				94AE3BFE283178999D7D37D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45172F4CB0565DB950E0CB38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SkinCancerApp2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94AE3BFE283178999D7D37D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SkinCancerApp2/Pods-SkinCancerApp2-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SkinCancerApp2/Pods-SkinCancerApp2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E5538762242E3650041DD63 /* Sources */ = {
@@ -280,6 +356,7 @@
 		};
 		1E55388D2242E3670041DD63 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD70737639F4B57A7E9B844E /* Pods-SkinCancerApp2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -300,6 +377,7 @@
 		};
 		1E55388E2242E3670041DD63 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B928C190422E8E5DFFCB4A67 /* Pods-SkinCancerApp2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
