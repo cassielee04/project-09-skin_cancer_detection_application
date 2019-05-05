@@ -68,7 +68,7 @@ def photo_classify():
 
 	print(normalized)
 
-	
+	#return type of skin cancer
 	return result, 200
 
 @app.route("/location")
