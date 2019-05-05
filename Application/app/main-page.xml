@@ -7,7 +7,7 @@ https://docs.nativescript.org/ui/components.
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
 
     <Page.actionBar>
-        <ActionBar title="My App" icon="" class="action-bar">
+        <ActionBar title="Care Skin" icon="" class="action-bar">
 
         </ActionBar>
     </Page.actionBar>
@@ -15,7 +15,9 @@ https://docs.nativescript.org/ui/components.
         <StackLayout class="p-20">
 
             <Button text="Take Picture" tap="{{ takePicture }}"></Button>
+            <Button text="Check Results" tap="{{ checkResults }}"></Button> 
 
         </StackLayout>    
     </ScrollView>
 </Page>
+

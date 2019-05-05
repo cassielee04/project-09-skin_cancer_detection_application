@@ -1,0 +1,9 @@
+<Page loaded="pageLoaded">
+
+   <ActionBar title="Welcome" class="action-bar"></ActionBar>
+
+    <StackLayout class="home-panel">
+        <Label class="action-bar-title" text = "Check my skin Status" tap="onTap"/>
+        <Label text="{{ results }}"></Label>
+    </StackLayout> 
+</Page>

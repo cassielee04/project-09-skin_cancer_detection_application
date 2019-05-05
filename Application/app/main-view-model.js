@@ -8,10 +8,10 @@ const imageSourceModule = require("tns-core-modules/image-source")
 var bghttpModule = require("nativescript-background-http");
 var session = bghttpModule.session("image-upload");
 const fileSystemModule = require("tns-core-modules/file-system")
-
-var url1 = "http://cc0c7ec1.ngrok.io/photo_ML";
+var frameModule = require("ui/frame") 
+var url1 = "http://983f786e.ngrok.io/photo_ML";
 var method = "POST";
-var postData;
+
 
 
 function getMessage(counter) {
@@ -70,60 +70,59 @@ function createViewModel() {
                         {name:"uploaded",filename:path,mimeType:"image/png"}
                     ];
                     var task = session.multipartUpload(params, request);
-                    console.log(task);
+                    
+                    task.on("responded", responded);
 
+
+                    function responded(e) {
+                        console.log("eventName: " + e.eventName);
+                        console.log("data: " + e.data);
+                        //console.log("File is sent ")
+                        var navoptions = {
+                            moduleName:'output',
+                            results: e.data
+                        }
+                        console.log("File is sent2 ")
+
+                        frameModule.topmost().navigate(navoptions,{'results':e.data});  
+                        console.log("Nav is done")
+                        }
+
+                    
                 };
+                
+
                 }
                 )
-            //img = imageSource.FromAsset(imageAsset); 
             console.log("problem here")
-            // var savedfile =img.saveToFile(path,"png")
-            // if(savedfile){
-            //     var request = {
-            //         url: url1,
-            //         method: "POST",
-            //         headers: {
-            //             "Content-Type": "application/octet-stream",
-            //             "File-Name": "Test.png"
-            //         },
-            //         description: "{ 'uploading': " + "Test.png" + " }"
-            //     };
-            //     console.log("B4 sending")
-            //     var task = session.uploadFile(imageSource, request);
-            //     console.log("Sent")
-            //     task.on("progress", logEvent);
-            //     task.on("error", logEvent);
-            //     task.on("complete", logEvent);
-        
-            //     function logEvent(e) {
-            //         console.log("----------------");
-            //         console.log('Status: ' + e.eventName);
-            //         // console.log(e.object);
-            //         if (e.totalBytes !== undefined) {
-            //             console.log('current bytes transfered: ' + e.currentBytes);
-            //             console.log('Total bytes to transfer: ' + e.totalBytes);
-            //         }
-            //     }
-            // }
-            // else{
-            //     console.log("file not saved")
-            // }
 
-            // imageSourceModule.fromAsset(imageAsset) 
-            //     .then((imageSource) => {
-            //         console.log("b4 save",saved);
-            //     const saved = imageSource.saveToFile(path, "png");
-            //     console.log("save",saved); //True on ANDROID but false on IOS
-            //   });
-            
-    
             
         });
     }
 
-    
+    viewModel.checkResults = function() {
+        var navoptions = {
+            moduleName:'output'
+        }
+        console.log("File is sent2 ")
+        frameModule.topmost().navigate(navoptions);  
+    }
 
     return viewModel;
 }
+
+
+function checkResults(args) {
+    // const button = args.object;
+    // const page = button.page;
+    // page.frame.navigate("output");
+    var navoptions = {
+        moduleName:'output'
+    }
+    console.log("File is sent2 ")
+    frameModule.navigate(navoptions);  
+}
+
+exports.checkResults = checkResults;
 
 exports.createViewModel = createViewModel;

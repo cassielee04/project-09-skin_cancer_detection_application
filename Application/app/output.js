@@ -1,6 +1,4 @@
-//import { createViewModel } from "./main-view-model";
-
-const createViewModel = require("./main-view-model").createViewModel;
+const createViewModel = require("./output").createViewModel;
 
 
 /*
@@ -21,7 +19,7 @@ function onNavigatingTo(args){
 }
 
 /*
-Exporting a function in a NativeScript code-behind file makes it accessible
+Exporting a function in a ativeScript code-behind file makes it accessible
 to the file’s corresponding XML file. In this case, exporting the onNavigatingTo
 function here makes the navigatingTo="onNavigatingTo" binding in this page’s XML
 file work.
