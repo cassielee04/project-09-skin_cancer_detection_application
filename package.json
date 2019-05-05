@@ -1,0 +1,22 @@
+{
+  "name": "skin_cancer",
+  "version": "1.0.0",
+  "description": "# User Stories",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec500-software-engineering/project-skin_cancer_detection_application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ec500-software-engineering/project-skin_cancer_detection_application/issues"
+  },
+  "homepage": "https://github.com/ec500-software-engineering/project-skin_cancer_detection_application#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
