@@ -20,10 +20,12 @@ import keras
 
 
 UPLOAD_FOLDER = './data/images'
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/") # Home Directory 
+
 def home_dir():
     return "Welcome to Home Dir"
 
@@ -36,9 +38,10 @@ def photo_classify():
 	print("Endpoint Reached")
 	print(request.files)
 	img_data = {request.files}
-	file = request.files['image']
+	file = request.files['uploaded']
 	filename = 'Incoming_Image.jpg'
 	file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
 	# Reconstructing models and weights 
 
 	mobile = tensorflow.keras.applications.mobilenet.MobileNet()
@@ -50,6 +53,7 @@ def photo_classify():
 
 	# Prep datagen for test
 	test_datagen = ImageDataGenerator(rescale=1./255,rotation_range=1,zoom_range=0.1)
+
 	#For single tests
 	test_batches = test_datagen.flow_from_directory('data/',
 													target_size=(224,224),
@@ -59,12 +63,16 @@ def photo_classify():
 
 	print(np.argmax(predictions[0]))
 	print(cancer_List[np.argmax(predictions[0])])
+	result = cancer_List[np.argmax(predictions[0])]
 	normalized = (predictions[0]-min(predictions[0]))/(max(predictions[0])-min(predictions[0]))
 
 	print(normalized)
-	return "Image Received?", 200
+
+	
+	return result, 200
 
 @app.route("/location")
+
 def fetch_location():
     print("Fetching Hospital Info from API...")
     
