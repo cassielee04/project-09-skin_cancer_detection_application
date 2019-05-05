@@ -1,0 +1,8 @@
+<Page class="page">
+    <ActionBar title="Welcome" class="action-bar"></ActionBar>
+
+    <StackLayout class="home-panel">
+        <Image src= "res://IMG_0035.PNG"/>
+        <Button class="btn btn-primary" text="Check my skin Status" tap="onTap" />
+    </StackLayout>
+</Page>
