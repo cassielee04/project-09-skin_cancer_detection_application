@@ -1,8 +1,23 @@
-const express = require('express')
-const app = express()
-const path = require('path');
-const router = express.Router();
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const request = require('request');
+var path = require('path');
+
 const port = 3000
+
+
+app.use(bodyParser.json());
+
+app.engine('pug', require('pug').__express)
+app.set('view engine', 'pug');
+
+
+app.get('/',(req,res)=>{  
+  console.log("Welcome to CareSkin",req.cookies)
+  res.render(__dirname + '/view/index.pug');
+
+});
 
 app.get('/Upload', (request, response) => {
   response.send('Front Page')
@@ -16,6 +31,8 @@ app.get('/', (request, response) => {
 app.get('/Receive', (request, response) => {
     response.send('Where it receiveds and shows results')
 })
+
+
 
 app.listen(port, (err) => {
   if (err) {
