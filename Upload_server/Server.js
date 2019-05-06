@@ -44,6 +44,14 @@ app.post('/detection', (req, res) => {
 
   res.render(__dirname + '/view/detection.pug');
 })
+app.get('/Upload', (request, response) => {
+  response.send('Front Page')
+  // https://www.w3schools.com/html/html5_geolocation.asp
+})
+
+app.get('/', (request, response) => {
+    response.sendFile(path.join(__dirname+'/Gmap.html'));
+  })
 
 app.get('/Receive', (request, response) => {
     response.send('Where it receiveds and shows results')
