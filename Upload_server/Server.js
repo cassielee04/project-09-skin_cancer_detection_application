@@ -24,7 +24,7 @@ app.get('/Upload', (request, response) => {
   // https://www.w3schools.com/html/html5_geolocation.asp
 })
 
-app.get('/', (request, response) => {
+app.get('/gmap', (request, response) => {
     response.sendFile(path.join(__dirname+'/Gmap.html'));
   })
 
