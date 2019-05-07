@@ -4,11 +4,9 @@ const bodyParser = require('body-parser');
 const request = require('request');
 var path = require('path');
 var formidable = require('formidable');
-
 var httpmodule = require('http');
 var url1 = "http://1bfa1f4e.ngrok.io/photo_ML";
 var fs = require('fs');
-
 
 const port = 3000
 
@@ -31,30 +29,29 @@ app.get('/Upload', (req, res) => {
 
 
 app.post('/detection', (req, res) => {
+
   console.log("we are detecting")
-  // var formData = {
-
-  //   file: fs.createReadStream('testImage_2.jpg')
-  // };
-  // request.post({url:"http://1bfa1f4e.ngrok.io/photo_ML", formData: formData}, function optionalCallback(err, httpResponse, body) {
-  //   if (err) {
-  //     return console.error('upload failed:', err);
-  //   }
-  //   console.log('Upload successful!  Server responded with:', body);
-
+  console.log(req)
+  
   res.render(__dirname + '/view/detection.pug');
 })
 app.get('/Upload', (request, response) => {
+
   response.send('Front Page')
+
   // https://www.w3schools.com/html/html5_geolocation.asp
 })
 
 app.get('/gmap', (request, response) => {
+
     response.sendFile(path.join(__dirname+'/Gmap.html'));
+
   })
 
 app.get('/Receive', (request, response) => {
+
     response.send('Where it receiveds and shows results')
+
 })
 
 
