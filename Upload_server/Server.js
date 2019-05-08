@@ -99,9 +99,8 @@ app.get('/Upload', (request, response) => {
 
 
 app.get('/gmap', (request, response) => {
-
-    response.sendFile(path.join(__dirname+'/Gmap.html'));
-
+    console.log("hello")
+    res.render(__dirname+'/view/Gmap.pug');
   })
 
 app.get('/Receive', (request, response) => {
