@@ -7,9 +7,10 @@ var path = require('path');
 var util = require('util');
 var formidable = require('formidable');
 var pug = require('pug');
-// var fn = pug.compileFile('path to pug file', options);
-// var html = fn(locals);
-//const request2 = require('request-promise');
+app.engine('html',require('ejs').renderFile);
+const random = require('random')
+
+
 
 
 var httpmodule = require('http');
@@ -27,6 +28,12 @@ app.set('view engine', 'pug');
 
 
 app.get('/',(req,res)=>{  
+  request({url: ' https://serpapi.com/locations.json', json: true}, function(err, res, json) {
+  if (err) {
+    throw err;
+  }
+  console.log(json);
+});
   console.log("Welcome to CareSkin")
   res.render(__dirname + '/view/index.pug');
 
@@ -92,13 +99,60 @@ app.get('/Upload', (request, response) => {
   // https://www.w3schools.com/html/html5_geolocation.asp
 })
 */
+app.get('/shopping',(req,res)=>{
+
+  const GSR = require('google-search-results-nodejs')
+  let client = new GSR.GoogleSearchResults("")
+
+  var parameter = {
+      q: "Sunscreen",
+      location: "Boston, MA-Manchester, NH, United States",
+      hl: "en",
+      gl: "us",
+      google_domain: "google.com",
+  };
+
+  var num = random.int(0, 7)
+
+  var callback = function(data) {
+    res.redirect(data.organic_results[num].link);
+  }
+
+// Show result as JSON
+client.json(parameter,callback)
+
+})
+
+
+  
+
+
 
 app.get('/gmap', (req,res) => {
     console.log("hello")
-    // pug.compileFile(path.join(__dirname, "../views/Gmap.pug")),
-    // html = template(locals);
-    res.render(__dirname+'/view/Gmap.html');
-  })
+    const GSR = require('google-search-results-nodejs')
+    let client = new GSR.GoogleSearchResults("")
+
+    var parameter = {
+      q: "Dermatologist",
+      location: "Boston, Massachusetts, United States",
+      hl: "en",
+      gl: "us",
+      google_domain: "google.com",
+  };
+  
+
+  var callback = function(data) {
+    res.redirect(data.related_searches[4].link);
+  }
+
+//Show result as JSON
+ client.json(parameter,callback)
+
+    //res.render(__dirname+'/view/Gmap.html');
+
+
+})
 
 app.get('/Receive', (request, response) => {
 
