@@ -12,8 +12,7 @@
 
 
 # Systems Architecture
-
-
+![Alt text](/Software_A.png?raw=true "Diagram")
 
 # Data Collection
 
