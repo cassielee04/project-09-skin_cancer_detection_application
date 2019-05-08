@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+var multiparty = require('multiparty');
 const request = require('request');
 var path = require('path');
+var util = require('util');
 var formidable = require('formidable');
-const request2 = require('request-promise');
+//const request2 = require('request-promise');
 
 
 var httpmodule = require('http');
@@ -24,6 +26,8 @@ app.get('/',(req,res)=>{
   console.log("Welcome to CareSkin")
   res.render(__dirname + '/view/index.pug');
 
+
+
 });
 
 app.get('/Upload', (req, res) => {
@@ -33,34 +37,38 @@ app.get('/Upload', (req, res) => {
 
 
 app.post('/detection', async function (req, res) {
+  var form = new multiparty.Form();
+  
+  form.parse(req, function(err, fields, files) {
+    res.writeHead(200, {'content-type': 'text/plain'});
+    res.write('received upload:\n\n');
+    res.end(util.inspect({fields: fields, files: files}));
+  }); 
 
-    console.log(req.image)
-    
-//   var data = req.data;
-//   console.log(req.files)
-//   var options = {
-//       method: 'POST',
-//       uri: 'http://8a3b936a.ngrok.io/photo_ML',
-//       body: data,
-//       json: true // Automatically stringifies the body to JSON
-//   };
-  
-//   var returndata;
-//   var sendrequest = await request2(options)
-//   .then(function (parsedBody) {
-//       console.log(parsedBody); // parsedBody contains the data sent back from the Flask server
-//       returndata = parsedBody; // do something with this data, here I'm assigning it to a variable.
-//   })
-//   .catch(function (err) {
-      
-//   });
-  
-//   res.send(returndata);
+  form.on('file', function(name,file) {
+    var formData = {
+      file: {
+        value:  fs.createReadStream(file.path),
+        options: {
+          filename: file.originalFilename
+        }
+      }
+    };
+
+    // Post the file to the upload server
+    request.post({url: 'http://8a3b936a.ngrok.io/photo_ML', formData: formData}).on('response', function(response) {
+        console.log(response.statusCode) // 200
+        console.log(response.headers['r']) // 'image/png'
+        console.log(response.body)
+        //console.log(response)
+      });
+
+
+});
 
 });
 
 
-/*
 app.post('/detection', (req, res) => {
 
   console.log("we are detecting")
@@ -68,6 +76,7 @@ app.post('/detection', (req, res) => {
   
   res.render(__dirname + '/view/detection.pug');
 })
+/*
 app.get('/Upload', (request, response) => {
 
   response.send('Front Page')
@@ -75,6 +84,7 @@ app.get('/Upload', (request, response) => {
   // https://www.w3schools.com/html/html5_geolocation.asp
 })
 */
+
 
 
 app.get('/gmap', (request, response) => {
