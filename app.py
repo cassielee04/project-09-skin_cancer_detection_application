@@ -16,7 +16,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Dense,Dropout
 import numpy as np
 import keras 
-
+from flask import Response
 
 
 UPLOAD_FOLDER = './data/images'
@@ -68,8 +68,13 @@ def photo_classify():
 
 	print(normalized)
 
+	#response.headers["result"] = result 
 	#return type of skin cancer
-	return result, 200
+
+	r = Response(response=result, status=200, mimetype="application/xml")
+	r.headers["Content-Type"] = "text/xml; charset=utf-8"
+	r.headers["r"] = result
+	return r
 
 @app.route("/location")
 

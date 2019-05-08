@@ -7,8 +7,8 @@ var path = require('path');
 var util = require('util');
 var formidable = require('formidable');
 var pug = require('pug');
-var fn = pug.compileFile('path to pug file', options);
-var html = fn(locals);
+// var fn = pug.compileFile('path to pug file', options);
+// var html = fn(locals);
 //const request2 = require('request-promise');
 
 
@@ -21,6 +21,7 @@ const port = 3000
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/view'));
+app.engine('html', require('ejs').renderFile);
 app.engine('pug', require('pug').__express)
 app.set('view engine', 'pug');
 
@@ -96,7 +97,7 @@ app.get('/gmap', (req,res) => {
     console.log("hello")
     // pug.compileFile(path.join(__dirname, "../views/Gmap.pug")),
     // html = template(locals);
-    res.render(__dirname+'/view/Gmap.pug');
+    res.render(__dirname+'/view/Gmap.html');
   })
 
 app.get('/Receive', (request, response) => {
