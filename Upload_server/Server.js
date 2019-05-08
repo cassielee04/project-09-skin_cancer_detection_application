@@ -10,7 +10,7 @@ var formidable = require('formidable');
 
 
 var httpmodule = require('http');
-var url1 = "http://8a3b936a.ngrok.io/photo_ML";
+//var url1 = "http://8a3b936a.ngrok.io/photo_ML";
 var fs = require('fs');
 
 const port = 3000
@@ -43,7 +43,6 @@ app.post('/detection', async function (req, res) {
     // res.writeHead(200, {'content-type': 'text/plain'});
     // res.write('received upload:\n\n');
     // res.end(util.inspect({fields: fields, files: files}));
-    res.render(__dirname + '/view/output.pug');
   }); 
 
   form.on('file', function(name,file) {
@@ -57,11 +56,22 @@ app.post('/detection', async function (req, res) {
     };
 
     // Post the file to the upload server
-    request.post({url: 'http://8a3b936a.ngrok.io/photo_ML', formData: formData}).on('response', function(response) {
+    request.post({url: 'http://e0455f19.ngrok.io/photo_ML', formData: formData}).on('response', function(response) {
         console.log(response.statusCode) // 200
         console.log(response.headers['r']) // 'image/png'
+        var symptoms;
+        if(response.headers['r'] == undefined)
+        {
+          symptoms = "you are healthy or you put undetectable image";
+        }
+        else 
+          symptoms = response.headers['r'];
         console.log(response.body)
+        console.log("symptoms ", symptoms);
+
         //console.log(response)
+
+        res.render(__dirname + '/view/output.pug', {title: `${symptoms}`});
       });
 
 
