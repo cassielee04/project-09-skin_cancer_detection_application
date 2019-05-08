@@ -27,7 +27,7 @@ app.set('view engine', 'pug');
 
 
 app.get('/',(req,res)=>{  
-  request({url: ' https://serpapi.com/locations.json', json: true}, function(err, res, json) {
+  request({url: 'https://serpapi.com/locations.json', json: true}, function(err, res, json) {
   if (err) {
     throw err;
   }
@@ -66,7 +66,7 @@ app.post('/detection', async function (req, res) {
     };
 
     // Post the file to the upload server
-    request.post({url: 'http://e0455f19.ngrok.io/photo_ML', formData: formData}).on('response', function(response) {
+    request.post({url: 'http://4f4af6d9.ngrok.io/photo_ML', formData: formData}).on('response', function(response) {
         console.log(response.statusCode) // 200
         console.log(response.headers['r']) // 'image/png'
         var symptoms;
