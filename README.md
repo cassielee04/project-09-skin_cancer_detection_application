@@ -24,13 +24,23 @@ https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000 : 10,000 Training image
 - Looked for APIs to search for hospitals in the vicinity 
 - Design a wrapping architecture that integrates all the modules
 
+# Machine Learning Model
+This model classifies skin lesions into seven classes. It is a fine tuned MobileNet CNN. All training was done in this kernel. The main challenges were the unbalanced dataset and the small amount of data. The data augmentation is used to reduce the class imbalance and in so doing get categorical accuracy scores that were not heavily skewed by a single majority class.
+
+MobileNet’s small size and speed makes it ideal for web deployment.
 
 
-# Technologies used in first sprint
+
+# Outputs of Machine Learning
+![Alt text](/output.png?raw=true "Results")
+
+- These are Results the model can detect
+
+# Technologies Used
 - Python Flask ( Backend server hosting )
   - We are going to be using the Microsoft Azure to host our backend server to run ML analysis on the incoming image from the    computer storage. Since running a machine learning algorithm in a mobile device is not adequate, we are going to be hosting a server in Azure so that it will handle the workload in the cloud.
 - Node JS ( Application for mobile images -> Backend Server )
- - Since we are going to develop an application that will run in web we will be using Node JS , CSS, and HTML to develop an Web app locally.
+- Since we are going to develop an application that will run in web we will be using Node JS , CSS, and HTML to develop an Web app locally.
   
 # APIs of the Project
 - Google Map API (To locate and introduce hospital near users), Search Engine API (for shopping products for UVprotection)
@@ -41,11 +51,14 @@ https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000 : 10,000 Training image
 ```
 npm instll pug
 npm install random util
+npm install google-search-results-nodejs
+npm install multiparty
 ```
 # How to Run
 ```
 node Server.js
 ```
+# Tasks 
 
 
 
