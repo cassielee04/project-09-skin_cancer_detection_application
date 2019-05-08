@@ -20,13 +20,13 @@ https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000 : 10,000 Training image
 ![Alt text](/ProjectStructure.png?raw=true "Diagram")
 
 # Technologies used in first sprint
-- Microsoft Azure ( Backend server hosting )
+- Python Flask ( Backend server hosting )
   - We are going to be using the Microsoft Azure to host our backend server to run ML analysis on the incoming image from the        mobile device. Since running a machine learning algorithm in a mobile device is not adequate, we are going to be hosting a server in Azure so that it will handle the workload in the cloud.
-- Xcode ( Application for mobile images -> Backend Server )
-  - Since we are going to develop an application that will run in IOS we will be using Swift and Xcode to develop an mobile app locally.
+- Node JS ( Application for mobile images -> Backend Server )
+  - Since we are going to develop an application that will run in web we will be using Node JS , CSS, and HTML to develop an Web app locally.
   
 # APIs of first sprint
-- Google Map API (To locate and introduce hospital near users)
+- Google Map API (To locate and introduce hospital near users), Search Engine API (for shopping products for UVprotection)
 - Numpy, pandas, sklearn
 
 # Task assignments
