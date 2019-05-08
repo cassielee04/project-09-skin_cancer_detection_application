@@ -41,9 +41,10 @@ app.post('/detection', async function (req, res) {
   var form = new multiparty.Form();
   
   form.parse(req, function(err, fields, files) {
-    res.writeHead(200, {'content-type': 'text/plain'});
-    res.write('received upload:\n\n');
-    res.end(util.inspect({fields: fields, files: files}));
+    // res.writeHead(200, {'content-type': 'text/plain'});
+    // res.write('received upload:\n\n');
+    // res.end(util.inspect({fields: fields, files: files}));
+    res.render(__dirname + '/view/output.pug');
   }); 
 
   form.on('file', function(name,file) {
@@ -63,30 +64,6 @@ app.post('/detection', async function (req, res) {
 });
 
 });
-
-
-app.post('/detection', (req, res) => {
-  console.log("we are detecting")
-  // var formData = {
-
-  //   file: fs.createReadStream('testImage_2.jpg')
-  // };
-  // request.post({url:"http://1bfa1f4e.ngrok.io/photo_ML", formData: formData}, function optionalCallback(err, httpResponse, body) {
-  //   if (err) {
-  //     return console.error('upload failed:', err);
-  //   }
-  //   console.log('Upload successful!  Server responded with:', body);
-
-  res.render(__dirname + '/view/detection.pug');
-})
-/*
-app.get('/Upload', (request, response) => {
-  response.send('Front Page')
-  // https://www.w3schools.com/html/html5_geolocation.asp
-})
-*/
-
-
 
 app.get('/gmap', (request, response) => {
     response.sendFile(path.join(__dirname+'/Gmap.html'));
