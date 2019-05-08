@@ -76,8 +76,7 @@ app.post('/detection', async function (req, res) {
         }
         else 
           symptoms = response.headers['r'];
-        console.log(response.body)
-        console.log("symptoms ", symptoms);
+    
 
         //console.log(response)
 
