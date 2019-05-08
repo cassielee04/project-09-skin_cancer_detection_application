@@ -38,7 +38,7 @@ def photo_classify():
 	print("Endpoint Reached")
 	print(request.files)
 	img_data = {request.files}
-	file = request.files['upload']
+	file = request.files['file']
 	filename = 'Incoming_Image.jpg'
 	file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 

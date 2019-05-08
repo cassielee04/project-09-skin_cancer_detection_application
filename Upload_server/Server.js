@@ -4,8 +4,11 @@ const bodyParser = require('body-parser');
 const request = require('request');
 var path = require('path');
 var formidable = require('formidable');
+const request2 = require('request-promise');
+
+
 var httpmodule = require('http');
-var url1 = "http://1bfa1f4e.ngrok.io/photo_ML";
+var url1 = "http://8a3b936a.ngrok.io/photo_ML";
 var fs = require('fs');
 
 const port = 3000
@@ -28,6 +31,36 @@ app.get('/Upload', (req, res) => {
 })
 
 
+
+app.post('/detection', async function (req, res) {
+
+    console.log(req.image)
+    
+//   var data = req.data;
+//   console.log(req.files)
+//   var options = {
+//       method: 'POST',
+//       uri: 'http://8a3b936a.ngrok.io/photo_ML',
+//       body: data,
+//       json: true // Automatically stringifies the body to JSON
+//   };
+  
+//   var returndata;
+//   var sendrequest = await request2(options)
+//   .then(function (parsedBody) {
+//       console.log(parsedBody); // parsedBody contains the data sent back from the Flask server
+//       returndata = parsedBody; // do something with this data, here I'm assigning it to a variable.
+//   })
+//   .catch(function (err) {
+      
+//   });
+  
+//   res.send(returndata);
+
+});
+
+
+/*
 app.post('/detection', (req, res) => {
 
   console.log("we are detecting")
@@ -41,6 +74,8 @@ app.get('/Upload', (request, response) => {
 
   // https://www.w3schools.com/html/html5_geolocation.asp
 })
+*/
+
 
 app.get('/gmap', (request, response) => {
 
