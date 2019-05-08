@@ -6,6 +6,9 @@ const request = require('request');
 var path = require('path');
 var util = require('util');
 var formidable = require('formidable');
+var pug = require('pug');
+var fn = pug.compileFile('path to pug file', options);
+var html = fn(locals);
 //const request2 = require('request-promise');
 
 
@@ -80,13 +83,6 @@ app.post('/detection', async function (req, res) {
 });
 
 
-app.post('/detection', (req, res) => {
-
-  console.log("we are detecting")
-  console.log(req)
-  
-  res.render(__dirname + '/view/detection.pug');
-})
 /*
 app.get('/Upload', (request, response) => {
 
@@ -96,10 +92,10 @@ app.get('/Upload', (request, response) => {
 })
 */
 
-
-
-app.get('/gmap', (request, response) => {
+app.get('/gmap', (req,res) => {
     console.log("hello")
+    // pug.compileFile(path.join(__dirname, "../views/Gmap.pug")),
+    // html = template(locals);
     res.render(__dirname+'/view/Gmap.pug');
   })
 
