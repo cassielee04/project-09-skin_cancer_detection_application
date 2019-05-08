@@ -31,34 +31,37 @@ MobileNet’s small size and speed makes it ideal for web deployment.
 
 
 
-# Outputs of Machine Learning
+## Outputs of Machine Learning
 ![Alt text](/output.png?raw=true "Results")
 
-- These are Results the model can detect
+These are the types of skin cancer that model can detect
 
-# Technologies Used
+## Technologies Used
 - Python Flask ( Backend server hosting )
   - We are going to be using the Microsoft Azure to host our backend server to run ML analysis on the incoming image from the    computer storage. Since running a machine learning algorithm in a mobile device is not adequate, we are going to be hosting a server in Azure so that it will handle the workload in the cloud.
 - Node JS ( Application for mobile images -> Backend Server )
 - Since we are going to develop an application that will run in web we will be using Node JS , CSS, and HTML to develop an Web app locally.
   
-# APIs of the Project
+## APIs of the Project
 - Google Map API (To locate and introduce hospital near users), Search Engine API (for shopping products for UVprotection)
 - Numpy, pandas, sklearn
 - NeedS API Key for SerpApi and Googlemap API
 
-# Libraries needs to be installed
+## Libraries needs to be installed
 ```
 npm instll pug
 npm install random util
 npm install google-search-results-nodejs
 npm install multiparty
 ```
-# How to Run
+## How to Run
 ```
 node Server.js
 ```
-# Tasks 
+## Tasks 
+
+- Byounsul Lee: Tranined the ML Model and created Python flask server
+- Seung Hee Lee: Applying APIs to the current application and connecting frontend and backend. 
 
 
 
