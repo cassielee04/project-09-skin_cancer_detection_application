@@ -13,8 +13,7 @@ var httpmodule = require('http');
 var url1 = "http://8a3b936a.ngrok.io/photo_ML";
 var fs = require('fs');
 
-
-const port = 5000
+const port = 3000
 
 
 app.use(bodyParser.json());
@@ -58,19 +57,47 @@ app.post('/detection', async function (req, res) {
     };
 
     // Post the file to the upload server
-    request.post({url: 'http://8a3b936a.ngrok.io/photo_ML', formData: formData});
+    request.post({url: 'http://8a3b936a.ngrok.io/photo_ML', formData: formData}).on('response', function(response) {
+        console.log(response.statusCode) // 200
+        console.log(response.headers['r']) // 'image/png'
+        console.log(response.body)
+        //console.log(response)
+      });
 
 
 });
 
 });
+
+
+app.post('/detection', (req, res) => {
+
+  console.log("we are detecting")
+  console.log(req)
+  
+  res.render(__dirname + '/view/detection.pug');
+})
+/*
+app.get('/Upload', (request, response) => {
+
+  response.send('Front Page')
+
+  // https://www.w3schools.com/html/html5_geolocation.asp
+})
+*/
+
+
 
 app.get('/gmap', (request, response) => {
+
     response.sendFile(path.join(__dirname+'/Gmap.html'));
+
   })
 
 app.get('/Receive', (request, response) => {
+
     response.send('Where it receiveds and shows results')
+
 })
 
 
