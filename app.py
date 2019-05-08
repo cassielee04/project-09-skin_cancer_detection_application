@@ -64,6 +64,7 @@ def photo_classify():
 	print(np.argmax(predictions[0]))
 	print(cancer_List[np.argmax(predictions[0])])
 	result = cancer_List[np.argmax(predictions[0])]
+
 	normalized = (predictions[0]-min(predictions[0]))/(max(predictions[0])-min(predictions[0]))
 
 	print(normalized)

@@ -14,7 +14,7 @@ const random = require('random')
 
 
 var httpmodule = require('http');
-//var url1 = "http://8a3b936a.ngrok.io/photo_ML";
+//var url1 = "http://4f4af6d9.ngrok.io/photo_ML";
 var fs = require('fs');
 
 const port = 3000
@@ -32,7 +32,7 @@ app.get('/',(req,res)=>{
   if (err) {
     throw err;
   }
-  console.log(json);
+  //console.log(json);
 });
   console.log("Welcome to CareSkin")
   res.render(__dirname + '/view/index.pug');
@@ -67,10 +67,12 @@ app.post('/detection', async function (req, res) {
     };
 
     // Post the file to the upload server
-    request.post({url: 'http://e0455f19.ngrok.io/photo_ML', formData: formData}).on('response', function(response) {
+    request.post({url: 'http://4f4af6d9.ngrok.io/photo_ML', formData: formData}).on('response', function(response) {
         console.log(response.statusCode) // 200
         console.log(response.headers['r']) // 'image/png'
+
         var symptoms;
+
         if(response.headers['r'] == undefined)
         {
           symptoms = "you are healthy or you put undetectable image";
@@ -101,7 +103,7 @@ app.get('/Upload', (request, response) => {
 app.get('/shopping',(req,res)=>{
 
   const GSR = require('google-search-results-nodejs')
-  let client = new GSR.GoogleSearchResults("")
+  let client = new GSR.GoogleSearchResults("AIzaSyBgYC-Z_rjwWIzRk5zgtv3G84QsUq2WBrg")
 
   var parameter = {
       q: "Sunscreen",
@@ -130,7 +132,7 @@ client.json(parameter,callback)
 app.get('/gmap', (req,res) => {
     console.log("hello")
     const GSR = require('google-search-results-nodejs')
-    let client = new GSR.GoogleSearchResults("")
+    let client = new GSR.GoogleSearchResults("AIzaSyBgYC-Z_rjwWIzRk5zgtv3G84QsUq2WBrg")
 
     var parameter = {
       q: "Dermatologist",
