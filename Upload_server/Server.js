@@ -28,7 +28,7 @@ app.set('view engine', 'pug');
 
 
 app.get('/',(req,res)=>{  
-  request({url: ' https://serpapi.com/locations.json', json: true}, function(err, res, json) {
+  request({url: 'https://serpapi.com/locations.json', json: true}, function(err, res, json) {
   if (err) {
     throw err;
   }
